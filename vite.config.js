@@ -9,7 +9,7 @@ export default defineConfig({
     emptyOutDir: true,
     rollupOptions: {
       input: {
-        main: 'static/vite-index.html'
+        main: 'static/index.html'
       },
       output: {
         assetFileNames: (assetInfo) => {
