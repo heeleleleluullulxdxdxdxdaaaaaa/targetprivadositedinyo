@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Target 2.0</title>
+
+    <link rel="icon" type="image/x-icon" href="static/images/logo.png">
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Krona+One&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="static/css/index.css">
+    <style>
+        /* Override background images to match yellow theme */
+        .page__container {
+            background-image: url("static/svg/page.png") !important;
+        }
+        .page__container::after {
+            background-image: url("static/svg/components.svg") !important;
+        }
+    </style>
+
+</head>
+<body data-version="2.2" oncontextmenu="return false;" onselectstart="return false;" ondragstart="return false;">
+
+    <!-- Background Music -->
+    <audio id="background-music" loop>
+        <source src="static/audio/background.wav" type="audio/wav">
+        <source src="static/audio/background.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <div class="root">
+        <div class="titlebar__container" id="titlebar__container">
+            <div class="titlebar__content">
+                <div class="titlebar__item" style="justify-content: left;">
+                    <button onclick="scrollToElement('page__container')" class="titlebar__site__button">
+                        <img src="static/images/logo.png" onerror="this.style.display='none'">
+                        <div class="titlebar__site__button__text" id="titlebar__site__button__text">
+                            <span class="title">TARGET</span>
+                            <span class="description">2.0</span>
+                        </div>
+                    </button>
+                </div>
+                <div class="titlebar__item" style="justify-content: center;">
+                    <button onclick="scrollToElement('page__container')" class="titlebar__button">
+                        Home
+                    </button>
+                    <button onclick="scrollToElement('reviews__container')" class="titlebar__button">
+                        Reviews
+                    </button>
+                    <button onclick="scrollToElement('sellers__container')" class="titlebar__button">
+                        Shop
+                    </button>
+                </div>
+                <div class="titlebar__item" style="justify-content: right; gap: 15px;">
+                    <button class="music-toggle" onclick="toggleMusic()" id="musicButton" title="Toggle Background Music">
+                        <span id="music-icon">🔊</span>
+                    </button>
+                    <button class="language-toggle" onclick="toggleLanguage()">
+                        <span id="lang-text">TR</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="page__container" id="page__container">
+            <span class="title">Target 2.0</span>
+            <div class="menu-preview-wrapper">
+                <img src="static/images/menu.png" alt="Target 2.0 Menu Preview" class="main-menu-image" onerror="this.style.display='none'">
+            </div>
+            <span class="description">Undetected FiveM private cheat with premium features. Advanced aimbot, ESP, and customization for GTA V servers.</span>
+            <button onclick="window.open('https://discord.gg/target', '_blank')" class="animated-button">
+                <span>Buy now</span>
+            </button>
+        </div>
+
+        <div class="statistic__container">
+            <div class="statistic__content">
+                <div class="statistic__item">
+                    <img src="static/svg/solar_users-group-rounded-bold-duotone.svg" onerror="this.style.display='none'">
+                    <div class="statistic__item__text">
+                        <span class="title">50+</span>
+                        <span class="description">Active Users</span>
+                    </div>
+                </div>
+                <div class="statistic__item">
+                    <img src="static/svg/duo-icons_shopping-bag.svg" onerror="this.style.display='none'">
+                    <div class="statistic__item__text">
+                        <span class="title">1000+</span>
+                        <span class="description">Successful Loads</span>
+                    </div>
+                </div>
+                <div class="statistic__item">
+                    <img src="static/svg/duo-icons_clock.svg" onerror="this.style.display='none'">
+                    <div class="statistic__item__text">
+                        <span class="title">24/7</span>
+                        <span class="description">Support</span>
+                    </div>
+                </div>
+                <div class="statistic__item">
+                    <img src="static/svg/solar_qr-code-bold-duotone.svg" onerror="this.style.display='none'">
+                    <div class="statistic__item__text">
+                        <span class="title">0.0%</span>
+                        <span class="description">Detection Rate</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="note__container">
+            <span class="title">
+                Undetected
+                <span class="title" style="color: #f6b215;">Gaming!</span>
+            </span>
+            <span class="description">Premium undetected cheat solutions for FiveM and other games. Trusted by thousands of gamers worldwide.</span>
+        </div>
+
+        <!-- Showcase Section -->
+        <div class="showcase__container">
+            <div class="showcase__content">
+                <div class="showcase__video">
+                    <iframe 
+                        src="https://www.youtube.com/embed/CnxTOY2eheo" 
+                        title="Target 2.0 Showcase" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <div class="showcase__info">
+                    <span class="showcase__title">Watch Our Latest Showcase</span>
+                    <span class="showcase__description">See Target 2.0 in action with real gameplay footage and feature demonstrations.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="reviews__container" id="reviews__container">
+            <div class="reviews__content">
+                <div class="reviews__items__container">
+                    <div class="reviews__item">
+                        <div class="reviews__item__header">
+                            <span class="title">+rep undetected on all servers, 0 bans so far. Best FiveM cheat I've used!</span>
+                        </div>
+                        <div class="reviews__item__bottom">
+                            <div class="reviews__item__bottom__customer">
+                                <span class="title">Gamer</span>
+                                <span class="description">15.03.2024</span>
+                            </div>
+                            <div class="reviews__item__bottom__stars">
+                                <img src="static/svg/star (2) 2.svg" onerror="this.style.display='none'">
+                                <img src="static/svg/star (2) 2.svg" onerror="this.style.display='none'">
+                                <img src="static/svg/star (2) 2.svg" onerror="this.style.display='none'">
+                                <img src="static/svg/star (2) 2.svg" onerror="this.style.display='none'">
+                                <img src="static/svg/star (2) 2.svg" onerror="this.style.display='none'">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reviews__item">
+                        <div class="reviews__item__header">
+                            <span class="title">+Rep amazing aimbot and ESP features. Works perfectly on NoPixel 4.0</span>
+                        </div>
+                        <div class="reviews__item__bottom">
+                            <div class="reviews__item__bottom__customer">
+                                <span class="title">Player</span>
+                                <span class="description">22.02.2024</span>
+                            </div>
+                            <div class="reviews__item__bottom__stars">
+                                <img src="static/svg/star (2) 2.svg" onerror="this.style.display='none'">
+                                <img src="static/svg/star (2) 2.svg" onerror="this.style.display='none'">
+                                <img src="static/svg/star (2) 2.svg" onerror="this.style.display='none'">
+                                <img src="static/svg/star (2) 2.svg" onerror="this.style.display='none'">
+                                <img src="static/svg/star (2) 2.svg" onerror="this.style.display='none'">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reviews__item">
+                        <div class="reviews__item__header">
+                            <span class="title">REP bought the premium version, worth every penny. Clean interface and no lag.</span>
+                        </div>
+                        <div class="reviews__item__bottom">
+                            <div class="reviews__item__bottom__customer">
+                                <span class="title">User</span>
+                                <span class="description">08.01.2024</span>
+                            </div>
+                            <div class="reviews__item__bottom__stars">
+                                <img src="static/svg/star (2) 2.svg" onerror="this.style.display='none'">
+                                <img src="static/svg/star (2) 2.svg" onerror="this.style.display='none'">
+                                <img src="static/svg/star (2) 2.svg" onerror="this.style.display='none'">
+                                <img src="static/svg/star (2) 2.svg" onerror="this.style.display='none'">
+                                <img src="static/svg/star (2) 2.svg" onerror="this.style.display='none'">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reviews__item">
+                        <div class="reviews__item__header">
+                            <span class="title">+rep custom work for my server, delivered fast and works flawlessly!</span>
+                        </div>
+                        <div class="reviews__item__bottom">
+                            <div class="reviews__item__bottom__customer">
+                                <span class="title">Server Owner</span>
+                                <span class="description">30.12.2023</span>
+                            </div>
+                            <div class="reviews__item__bottom__stars">
+                                <img src="static/svg/star (2) 2.svg" onerror="this.style.display='none'">
+                                <img src="static/svg/star (2) 2.svg" onerror="this.style.display='none'">
+                                <img src="static/svg/star (2) 2.svg" onerror="this.style.display='none'">
+                                <img src="static/svg/star (2) 2.svg" onerror="this.style.display='none'">
+                                <img src="static/svg/star (2) 2.svg" onerror="this.style.display='none'">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reviews__item">
+                        <div class="reviews__item__header">
+                            <span class="title">+rep very clean and professional cheat, 0 detection rate. Highly recommend!</span>
+                        </div>
+                        <div class="reviews__item__bottom">
+                            <div class="reviews__item__bottom__customer">
+                                <span class="title">Gamer</span>
+                                <span class="description">18.11.2023</span>
+                            </div>
+                            <div class="reviews__item__bottom__stars">
+                                <img src="static/svg/star (2) 2.svg" onerror="this.style.display='none'">
+                                <img src="static/svg/star (2) 2.svg" onerror="this.style.display='none'">
+                                <img src="static/svg/star (2) 2.svg" onerror="this.style.display='none'">
+                                <img src="static/svg/star (2) 2.svg" onerror="this.style.display='none'">
+                                <img src="static/svg/star (2) 2.svg" onerror="this.style.display='none'">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="reviews__item">
+                        <div class="reviews__item__header">
+                            <span class="title">Crazy undetected cheat with premium features, worth the wait! Used it 100+ times.</span>
+                        </div>
+                        <div class="reviews__item__bottom">
+                            <div class="reviews__item__bottom__customer">
+                                <span class="title">Player</span>
+                                <span class="description">05.10.2023</span>
+                            </div>
+                            <div class="reviews__item__bottom__stars">
+                                <img src="static/svg/star (2) 2.svg" onerror="this.style.display='none'">
+                                <img src="static/svg/star (2) 2.svg" onerror="this.style.display='none'">
+                                <img src="static/svg/star (2) 2.svg" onerror="this.style.display='none'">
+                                <img src="static/svg/star (2) 2.svg" onerror="this.style.display='none'">
+                                <img src="static/svg/star (2) 2.svg" onerror="this.style.display='none'">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <span class="title-description">Our reviews are honest. Want more proof? Join our Discord server to see over <span style="font-size: 25px; font-weight: 600; color: var(--accent);">80+</span> genuine reviews from real users!</span>
+
+                <button onclick="window.open('https://discord.gg/fivemcheats', '_blank')" class="animated-button">
+                    <span>Join Discord</span>
+                </button>
+
+            </div>
+        </div>
+
+        <div class="sellers__container" id="sellers__container">
+            <div class="sellers__content">
+                <span class="title">Our Products</span>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="static/images/menu.png" alt=" FiveM Cheat" onerror="this.style.display='none'">
+                        </div>
+                        <div class="product-info">
+                            <span class="product-name">FiveM Cheat</span>
+
+                            <button class="details-button" onclick="openProductModal()">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Modal -->
+                <div class="product-modal" id="productModal">
+                    <div class="modal-overlay" onclick="closeProductModal()"></div>
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <span class="modal-title"> FiveM Cheat</span>
+                            <button class="close-button" onclick="closeProductModal()">&times;</button>
+                        </div>
+                        <div class="modal-body">
+
+                            <div class="feature-section">
+                                <h3 class="section-title">LegitBot Features</h3>
+                                <ul class="feature-list">
+                                    <li>AimBot with prediction and velocity compensation</li>
+                                    <li>Sticky aim with configurable FOV and smoothness</li>
+                                    <li>Bone selection (head, neck, spine, pelvis, hands, feet)</li>
+                                    <li>Distance-based sensitivity adjustment</li>
+                                    <li>Keybind support (hold/toggle/always modes)</li>
+                                    <li>Silent aim integration</li>
+                                    <li>SilentAim with dynamic FOV adjustment</li>
+                                    <li>TriggerBot with precision FOV</li>
+                                    <li>WheelSilentAim</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-section">
+                                <h3 class="section-title">Visual Features</h3>
+                                <ul class="feature-list">
+                                    <li>Player ESP with multiple box types (Normal, Corner, Filled, Gradient, 3D)</li>
+                                    <li>Health and armor bar visualization</li>
+                                    <li>Skeleton tracking with bone connections</li>
+                                    <li>Distance filtering with customizable ranges</li>
+                                    <li>Team/Enemy differentiation</li>
+                                    <li>Footsteps tracking with sound indicators</li>
+                                    <li>Damage indicators</li>
+                                    <li>Name tags with player information</li>
+                                    <li>Weapon detection and display</li>
+                                    <li>Head Esp</li>
+                                    <li>Vehicle type identification (cars, trucks, bikes, boats, planes)</li>
+                                    <li>Vehicle health status visualization</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-section">
+                                <h3 class="section-title">Exploits & Misc</h3>
+                                <ul class="feature-list">
+                                    <li>Noclip</li>
+                                    <li>God mode</li>
+                                    <li>Semi-god mode</li>
+                                    <li>No Ragdoll</li>
+                                    <li>No Collision</li>
+                                    <li>Infinite Combat Roll</li>
+                                    <li>Steal Car</li>
+                                    <li>Anti-Steal car</li>
+                                    <li>Vehicle Godmode</li>
+                                    <li>Vehicle Speed Modifier</li>
+                                    <li>Infinite stamina</li>
+                                    <li>V/CLIP UP AND V/CLIP DOWN</li>
+                                    <li>Set Health and Armor</li>
+                                    <li>Armor control with unlimited supply</li>
+                                    <li>Absorption system for damage mitigation</li>
+                                    <li>Vehicle teleportation</li>
+                                    <li>Vehicle unlock/lock</li>
+                                    <li>Crash Local Game</li>
+                                    <li>Fov Changer</li>
+                                    <li>FreeCam</li>
+                                    <li>Fix Vehicle</li>
+                                    <li>Vehicle Color Changer</li>
+                                    <li>Vehicle Jump</li>
+                                    <li>MagicBullet</li>
+                                    <li>PeekAssist</li>
+                                    <li>StrafeAssist with automated patterns</li>
+                                    <li>Character Run and Swim Speed</li>
+                                    <li>Vehicle Speed Multiplier</li>
+                                    <li>Weapon Range Limit</li>
+                                    <li>Range extension</li>
+                                    <li>Accuracy preservation</li>
+                                    <li>Time Changer</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="feature-section">
+                                <h3 class="section-title">Technical Specifications</h3>
+                                <ul class="feature-list">
+                                    <li>Platform: FiveM (GTA V)</li>
+                                    <li>OS: Windows 7/8/8.1/10/11 (64-bit)</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="product__images">
+                                <div class="image__preview">
+                                    <img src="static/images/menu.png" onerror="this.style.display='none'">
+                                </div>
+                            </div>
+                            <div class="product__price">
+
+                                <button class="buy__button" onclick="window.open('https://discord.gg/target', '_blank')">Buy Now</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="guarantee__container">
+            <div class="guarantee__content">
+                <div class="guarantee__item">
+                    <img src="static/svg/solar_user-bold-duotone.svg" onerror="this.style.display='none'">
+                    <span class="title">Quick support</span>
+                    <span class="description">Customer service that will answer you anytime 24/7 even on weekends.</span>
+                </div>
+                <div class="guarantee__item">
+                    <img src="static/svg/solar_delivery-bold-duotone.svg" onerror="this.style.display='none'">
+                    <span class="title">Instant delivery</span>
+                    <span class="description">Instant access to your product right after payment, directly in your account.</span>
+                </div>
+                <div class="guarantee__item">
+                    <img src="static/svg/solar_heart-bold-duotone.svg" onerror="this.style.display='none'">
+                    <span class="title">High quality</span>
+                    <span class="description">Superior quality ensured by our veteran developers with years of industry experience.</span>
+                </div>
+                <div class="guarantee__item">
+                    <img src="static/svg/duo-icons_chip.svg" onerror="this.style.display='none'">
+                    <span class="title">Own engine</span>
+                    <span class="description">Our proprietary engine runs on an enhanced ImGui framework with our custom add-ons.</span>
+                </div>
+                <div class="guarantee__item">
+                    <img src="static/svg/solar_incognito-bold-duotone.svg" onerror="this.style.display='none'">
+                    <span class="title">Anonymous delivery</span>
+                    <span class="description">Your complete anonymity and confidentiality for every purchase.</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer__container">
+            <div class="footer__content">
+                <div class="footer__item left" style="justify-content: left;">
+                    <img src="static/images/logo.png" onerror="this.style.display='none'">
+                </div>
+                <div class="footer__item center" style="justify-content: center;">
+                    <span id="footer__text" style="height: 13px;">
+                        target
+                        <span style="color: var(--white);">priv.xyz</span>
+                    </span>
+                </div>
+                <div class="footer__item right" style="justify-content: right; gap: 35px;">
+                    <button onclick="window.open('https://www.youtube.com/@uixOwl', '_blank')" class="contact-button youtube"></button>
+                    <button onclick="window.open('https://t.me/+mYN_FHnwaEQwYTEy', '_blank')" class="contact-button telegram"></button>
+                    <button onclick="window.open('https://discord.gg/fivemcheats', '_blank')" class="contact-button discord"></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="static/js/html_version.js"></script>
+    <script src="static/js/script.js"></script>
+    <script src="static/js/scroll.js"></script>
+    <script>
+        // Developer tools protection
+        (function() {
+            const devtools = {
+                open: false,
+                orientation: null
+            };
+            
+            const threshold = 160;
+            
+            setInterval(() => {
+                if (window.outerHeight - window.innerHeight > threshold || 
+                    window.outerWidth - window.innerWidth > threshold) {
+                    if (!devtools.open) {
+                        devtools.open = true;
+                        // Redirect or show warning
+                        window.location.href = 'about:blank';
+                    }
+                } else {
+                    devtools.open = false;
+                }
+            }, 500);
+            
+            // Disable context menu
+            document.addEventListener('contextmenu', e => e.preventDefault());
+            
+            // Disable F12, Ctrl+Shift+I, Ctrl+U
+            document.addEventListener('keydown', e => {
+                if (e.key === 'F12' || 
+                    (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+                    (e.ctrlKey && e.key === 'U')) {
+                    e.preventDefault();
+                    return false;
+                }
+            });
+        })();
+    </script>
+    <script>
+        // Music control
+        let isMusicPlaying = false;
+        const backgroundMusic = document.getElementById('background-music');
+        
+        function toggleMusic() {
+            console.log('Toggle music clicked');
+            
+            if (isMusicPlaying) {
+                console.log('Pausing music');
+                backgroundMusic.pause();
+                document.getElementById('music-icon').textContent = '🔇';
+                isMusicPlaying = false;
+            } else {
+                console.log('Playing music');
+                // Set volume to a comfortable level
+                backgroundMusic.volume = 0.3;
+                
+                backgroundMusic.play().then(() => {
+                    console.log('Music playing successfully');
+                    document.getElementById('music-icon').textContent = '🔊';
+                    isMusicPlaying = true;
+                }).catch(e => {
+                    console.error('Audio play failed:', e);
+                    console.log('Current source:', backgroundMusic.currentSrc);
+                    console.log('Network state:', backgroundMusic.networkState);
+                    console.log('Ready state:', backgroundMusic.readyState);
+                    
+                    // Show specific error message
+                    if (backgroundMusic.networkState === 3) {
+                        alert('Audio file not found! Please place your music file at: static/audio/background.mp3');
+                    } else {
+                        alert('Audio playback failed. Check console for details. Error: ' + e.message);
+                    }
+                });
+            }
+        }
+        
+        // Auto-play attempt (may be blocked by browser)
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('DOM loaded, initializing audio');
+            
+            // Check if audio element exists
+            if (!backgroundMusic) {
+                console.error('Audio element not found!');
+                return;
+            }
+            
+            // Try to preload audio
+            try {
+                backgroundMusic.load();
+                console.log('Audio loaded successfully');
+            } catch (e) {
+                console.error('Failed to load audio:', e);
+            }
+            
+            // Test if we can play audio
+            console.log('Audio ready state:', backgroundMusic.readyState);
+            console.log('Audio network state:', backgroundMusic.networkState);
+        });
+        
+        // Language toggle
+        let currentLang = 'en';
+        
+        const translations = {
+            en: {
+                home: 'Home',
+                reviews: 'Reviews',
+                shop: 'Shop',
+                buyNow: 'Buy now',
+                joinDiscord: 'Join Discord',
+                ourProducts: 'Our Products',
+                viewDetails: 'View Details',
+                legitBotFeatures: 'LegitBot Features',
+                visualFeatures: 'Visual Features',
+                exploitsMisc: 'Exploits & Misc',
+                technicalSpecs: 'Technical Specifications',
+                undetectedGaming: 'Undetected',
+                pleasure: 'Gaming!',
+                premiumUndetected: 'Premium undetected cheat solutions for FiveM and other games. Trusted by thousands of gamers worldwide.',
+                ourReviews: 'Our reviews are honest. Want more proof? Join our Discord server to see over',
+                genuineReviews: 'genuine reviews from real users!',
+                allTrusted: 'All trusted sellers on our team',
+                undetectedAimbot: 'Undetected Aimbot',
+                playerVehicleEsp: 'Player/Vehicle ESP',
+                exploitsSystem: 'Exploits System',
+                magicFeatures: 'Magic Features',
+                quickSupport: 'Quick support',
+                quickSupportDesc: 'Customer service that will answer you anytime 24/7 even on weekends.',
+                instantDelivery: 'Instant delivery',
+                instantDeliveryDesc: 'Instant access to your product right after payment, directly in your account.',
+                highQuality: 'High quality',
+                highQualityDesc: 'Superior quality ensured by our veteran developers with years of industry experience.',
+                ownEngine: 'Own engine',
+                ownEngineDesc: 'Our proprietary engine runs on an enhanced ImGui framework with our custom add-ons.',
+                anonymousDelivery: 'Anonymous delivery',
+                anonymousDeliveryDesc: 'Your complete anonymity and confidentiality for every purchase.',
+            },
+            tr: {
+                home: 'Ana Sayfa',
+                reviews: 'Yorumlar',
+                shop: 'Mağaza',
+                buyNow: 'Şimdi Satın Al',
+                joinDiscord: 'Discord\'a Katıl',
+                ourProducts: 'Ürünlerimiz',
+                viewDetails: 'Detayları Gör',
+                legitBotFeatures: 'LegitBot Özellikleri',
+                visualFeatures: 'Görsel Özellikler',
+                exploitsMisc: 'Exploitler & Diğer',
+                technicalSpecs: 'Teknik Özellikler',
+                undetectedGaming: 'Undetected',
+                pleasure: 'Oyun!',
+                premiumUndetected: 'Premium undetected cheat çözümleri FiveM ve diğer oyunlar için. Binlerce oyuncu tarafından güvenilir.',
+                ourReviews: 'Yorumlarımız dürüsttür. Daha fazla kanıt ister misiniz? Discord sunucumuza katılın ve',
+                genuineReviews: 'gerçek kullanıcılardan gelen yorumları görün!',
+                allTrusted: 'Tüm güvenilir satıcılarımız',
+                undetectedAimbot: 'Undetected Aimbot',
+                playerVehicleEsp: 'Oyuncu/Araç ESP',
+                exploitsSystem: 'Exploit Sistemi',
+                magicFeatures: 'Büyülü Özellikler',
+                quickSupport: 'Hızlı destek',
+                quickSupportDesc: '7/24 hafta sonları dahil her zaman size yanıt verecek müşteri hizmetleri.',
+                instantDelivery: 'Anında teslimat',
+                instantDeliveryDesc: 'Ödeme yapıldıktan hemen sonra ürününüze anında erişim, doğrudan hesabınızda.',
+                highQuality: 'Yüksek kalite',
+                highQualityDesc: 'Yılların deneyimine sahip uzman geliştiricilerimiz tarafından sağlanan üst düzey kalite.',
+                ownEngine: 'Kendi motorumuz',
+                ownEngineDesc: 'Özel motorumuz, özel eklentilerimizle geliştirilmiş bir ImGui çerçevesinde çalışır.',
+                anonymousDelivery: 'Anonim teslimat',
+                anonymousDeliveryDesc: 'Her satın alma işleminde tam anonimlik ve gizliliğiniz.',
+            }
+        };
+        
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'tr' : 'en';
+            document.getElementById('lang-text').textContent = currentLang.toUpperCase();
+            updateLanguage();
+        }
+        
+        function updateLanguage() {
+            const t = translations[currentLang];
+            
+            // Navigation
+            document.querySelectorAll('.titlebar__button')[0].textContent = t.home;
+            document.querySelectorAll('.titlebar__button')[1].textContent = t.reviews;
+            document.querySelectorAll('.titlebar__button')[2].textContent = t.shop;
+            
+            // Main title and description
+            document.querySelector('.page__container .title').textContent = 'Target 2.0';
+            document.querySelector('.page__container .description').textContent = t.premiumUndetected;
+            
+            // Buttons
+            const buyButtons = document.querySelectorAll('.animated-button span');
+            buyButtons[0].textContent = t.buyNow;
+            if (buyButtons[1]) {
+                buyButtons[1].textContent = t.joinDiscord;
+            }
+            
+            // Note section
+            const noteTitle = document.querySelector('.note__container .title');
+            if (noteTitle) {
+                noteTitle.innerHTML = 
+                    `${t.undetectedGaming} <span class="title" style="color: #f6b215;">${t.pleasure}</span>`;
+            }
+            const noteDesc = document.querySelector('.note__container .description');
+            if (noteDesc) {
+                noteDesc.textContent = t.premiumUndetected;
+            }
+            
+            // Reviews section
+            const reviewText = document.querySelector('.reviews__content .title-description');
+            if (reviewText) {
+                reviewText.innerHTML = `${t.ourReviews} <span style="font-size: 25px; font-weight: 600; color: var(--accent);">80+</span> ${t.genuineReviews}`;
+            }
+            
+            // Products section
+            const productTitle = document.querySelector('.sellers__content .title');
+            if (productTitle) {
+                productTitle.textContent = t.ourProducts;
+            }
+            
+            // Product card
+            const productButton = document.querySelector('.details-button');
+            if (productButton) {
+                productButton.textContent = t.viewDetails;
+            }
+            
+            // Modal
+            const modalTitle = document.querySelector('.modal-title');
+            if (modalTitle) {
+                modalTitle.textContent = 'FiveM Cheat';
+            }
+            
+            // Modal description
+            const modalDesc = document.querySelector('.product__description');
+            if (modalDesc) {
+                modalDesc.textContent = t.premiumUndetected;
+            }
+            
+            // Feature sections
+            const sectionTitles = document.querySelectorAll('.section-title');
+            if (sectionTitles.length >= 4) {
+                sectionTitles[0].textContent = t.legitBotFeatures;
+                sectionTitles[1].textContent = t.visualFeatures;
+                sectionTitles[2].textContent = t.exploitsMisc;
+                sectionTitles[3].textContent = t.technicalSpecs;
+            }
+            
+            // Feature list items - translate them
+            const featureItems = document.querySelectorAll('.feature__item span');
+            if (featureItems.length >= 4) {
+                featureItems[0].textContent = t.undetectedAimbot;
+                featureItems[1].textContent = t.playerVehicleEsp;
+                featureItems[2].textContent = t.exploitsSystem;
+                featureItems[3].textContent = t.magicFeatures;
+            }
+            
+            // Statistic items
+            const statTitles = document.querySelectorAll('.statistic__item__text .title');
+            const statDescs = document.querySelectorAll('.statistic__item__text .description');
+            if (statTitles.length >= 4 && statDescs.length >= 4) {
+                statTitles[0].textContent = currentLang === 'en' ? '50+' : '50+';
+                statDescs[0].textContent = currentLang === 'en' ? 'Active Users' : 'Aktif Kullanıcı';
+                statTitles[1].textContent = currentLang === 'en' ? '1000+' : '1000+';
+                statDescs[1].textContent = currentLang === 'en' ? 'Successful Loads' : 'Başarılı Yüklemeler';
+                statTitles[2].textContent = currentLang === 'en' ? '24/7' : '7/24';
+                statDescs[2].textContent = currentLang === 'en' ? 'Support' : 'Destek';
+                statTitles[3].textContent = currentLang === 'en' ? '0.0%' : '0.0%';
+                statDescs[3].textContent = currentLang === 'en' ? 'Detection Rate' : 'Tespit Oranı';
+            }
+            
+            // Guarantee items
+            const guaranteeTitles = document.querySelectorAll('.guarantee__item .title');
+            const guaranteeDescs = document.querySelectorAll('.guarantee__item .description');
+            if (guaranteeTitles.length >= 5 && guaranteeDescs.length >= 5) {
+                guaranteeTitles[0].textContent = t.quickSupport;
+                guaranteeDescs[0].textContent = t.quickSupportDesc;
+                guaranteeTitles[1].textContent = t.instantDelivery;
+                guaranteeDescs[1].textContent = t.instantDeliveryDesc;
+                guaranteeTitles[2].textContent = t.highQuality;
+                guaranteeDescs[2].textContent = t.highQualityDesc;
+                guaranteeTitles[3].textContent = t.ownEngine;
+                guaranteeDescs[3].textContent = t.ownEngineDesc;
+                guaranteeTitles[4].textContent = t.anonymousDelivery;
+                guaranteeDescs[4].textContent = t.anonymousDeliveryDesc;
+            }
+
+            // Reviews items - translate review content
+            const reviewHeaders = document.querySelectorAll('.reviews__item__header .title');
+            if (reviewHeaders.length >= 6) {
+                if (currentLang === 'en') {
+                    reviewHeaders[0].textContent = '+rep undetected on all servers, 0 bans so far. Best FiveM cheat I\'ve used!';
+                    reviewHeaders[1].textContent = '+Rep amazing aimbot and ESP features. Works perfectly on NoPixel 4.0';
+                    reviewHeaders[2].textContent = 'REP bought the premium version, worth every penny. Clean interface and no lag.';
+                    reviewHeaders[3].textContent = '+rep custom work for my server, delivered fast and works flawlessly!';
+                    reviewHeaders[4].textContent = '+rep very clean and professional cheat, 0 detection rate. Highly recommend!';
+                    reviewHeaders[5].textContent = 'Crazy undetected cheat with premium features, worth the wait! Used it 100+ times.';
+                } else {
+                    reviewHeaders[0].textContent = '+rep tüm sunucularda undetected, şu ana kadar 0 ban. Kullandığım en iyi FiveM cheat!';
+                    reviewHeaders[1].textContent = '+Rep harika aimbot ve ESP özellikleri. NoPixel 4.0\'ta mükemmel çalışıyor';
+                    reviewHeaders[2].textContent = 'REP premium sürümü aldım, her kuruşuna değdi. Temiz arayüz ve gecikme yok.';
+                    reviewHeaders[3].textContent = '+rep sunucum için özel iş, hızlı teslim ve kusursuz çalışıyor!';
+                    reviewHeaders[4].textContent = '+rep çok temiz ve profesyonel cheat, 0 tespit oranı. Çok tavsiye ederim!';
+                    reviewHeaders[5].textContent = 'Çılgınca undetected cheat premium özelliklerle, beklemeye değdi! 100+ kez kullandım.';
+                }
+            }
+
+            // Review customer names and dates
+            const reviewCustomers = document.querySelectorAll('.reviews__item__bottom__customer .title');
+            const reviewDates = document.querySelectorAll('.reviews__item__bottom__customer .description');
+            if (reviewDates.length >= 6) {
+                const fixedDates = ['15.03.2025', '22.02.2025', '08.01.2025', '30.12.2024', '18.11.2024', '05.10.2024'];
+                fixedDates.forEach((date, i) => reviewDates[i].textContent = date);
+            }
+        }
+        
+        // Mouse move parallax effect for menu images
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuWrappers = document.querySelectorAll('.menu-preview-wrapper');
+            const menuImages = document.querySelectorAll('.main-menu-image');
+            
+            menuWrappers.forEach((wrapper, index) => {
+                const image = menuImages[index];
+                if (wrapper && image) {
+                    wrapper.addEventListener('mousemove', function(e) {
+                        const rect = wrapper.getBoundingClientRect();
+                        const x = e.clientX - rect.left;
+                        const y = e.clientY - rect.top;
+                        
+                        const centerX = rect.width / 2;
+                        const centerY = rect.height / 2;
+                        
+                        const moveX = (x - centerX) / 25;
+                        const moveY = (y - centerY) / 25;
+                        
+                        const rotateY = (x - centerX) / 20;
+                        const rotateX = (centerY - y) / 20;
+                        
+                        wrapper.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translate3d(${moveX}px, ${moveY}px, 0)`;
+                        wrapper.style.boxShadow = `0 ${10 + moveY/2}px ${20 + Math.abs(moveX)}px rgba(0, 0, 0, ${0.1 + Math.abs(moveX)/100})`;
+                    });
+                    
+                    wrapper.addEventListener('mouseleave', function() {
+                        wrapper.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translate3d(0, 0, 0)';
+                        wrapper.style.boxShadow = '0 0 0 rgba(246, 178, 21, 0)';
+                    });
+                }
+            });
+        });
+
+        // Toggle product details
+        function openProductModal() {
+            document.getElementById('productModal').style.display = 'flex';
+        }
+
+        function closeProductModal() {
+            document.getElementById('productModal').style.display = 'none';
+        }
+
+        // Close modal on ESC key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeProductModal();
+            }
+        });
+
+        // Button hover animation
+        document.querySelectorAll('.animated-button').forEach(button => {
+            button.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(0.95)';
+                this.style.backgroundColor = '#ffd740';
+            });
+            button.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+                this.style.backgroundColor = '#f6b215';
+            });
+        });
+
+        // Smooth scroll animation
+        function scrollToElement(elementId) {
+            const element = document.getElementById(elementId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        // Fade in animation for guarantee items
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.guarantee__item').forEach(item => {
+            item.style.opacity = '0';
+            item.style.transform = 'translateY(20px)';
+            item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(item);
+        });
+    </script>
+
+</body>
+</html>
