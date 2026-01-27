@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block html %}
+    <link rel="stylesheet" href="{{ dated_url_for('static', filename='css/products.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="products__container">
+        <div class="products__content">
+            <span class="title">Seller's product <span style="color: var(--accent);">[{{ get_user(seller_id).username }}]</span></span>
+            <div class="products__items__content">
+                {% for product_id in product_ids %}
+                <div class="products__item redirect-button" href="/product/{{ get_product(product_id).name }}">
+                    <div class="products__item__image__container">
+                        <img class="product-image active" data-image="1" src="{{ url_for('static', filename='uploads/') }}{{ get_product(product_id).image1 }}" onerror="this.style.display='none'">
+                        {% if get_product(product_id).image2 != "None" %}
+                        <img class="product-image" data-image="2" src="{{ url_for('static', filename='uploads/') }}{{ get_product(product_id).image2 }}" style="display: none;" onerror="this.style.display='none'">
+                        {% endif %}
+                        {% if get_product(product_id).image3 != "None" %}
+                        <img class="product-image" data-image="3" src="{{ url_for('static', filename='uploads/') }}{{ get_product(product_id).image3 }}" style="display: none;" onerror="this.style.display='none'">
+                        {% endif %}
+
+                        {% if get_product(product_id).pin %}
+                            <div class="products__item__tag">
+                                <img src="{{ url_for('static', filename='svg/comet (2) 1.svg') }}" onerror="this.style.display='none'">
+                                <span>Exclusive</span>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="products__item__information__container">
+                        <div class="products__item__information__container__header">
+                            <div class="products__item__information__container__header__left">
+                                {% if get_product(product_id).pin %}
+                                    <img src="{{ url_for('static', filename='svg/pinicon.svg') }}" onerror="this.style.display='none'">
+                                {% endif %}
+                                <span>{{ get_product(product_id).category }} <span style="color: var(--accent);">{{ get_product(product_id).name }}</span></span>
+                            </div>
+                            <div class="products__item__information__container__header__right">
+                                {% set image_count = 0 %}
+                                {% if get_product(product_id).image1 != "None" %}{% set image_count = image_count + 1 %}{% endif %}
+                                {% if get_product(product_id).image2 != "None" %}{% set image_count = image_count + 1 %}{% endif %}
+                                {% if get_product(product_id).image3 != "None" %}{% set image_count = image_count + 1 %}{% endif %}
+                                
+                                {% if image_count > 1 %}
+                                    <div class="products__item__image__state active" data-state="1"></div>
+                                    {% if get_product(product_id).image2 != "None" %}
+                                    <div class="products__item__image__state" data-state="2"></div>
+                                    {% endif %}
+                                    {% if get_product(product_id).image3 != "None" %}
+                                    <div class="products__item__image__state" data-state="3"></div>
+                                    {% endif %}
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="products__item__information__container__bottom">
+                            <span style="color: var(--green);">{{ get_product(product_id).price }}$</span>
+                            <div style="display: flex; gap: 15px; align-items: center;">
+                            {% if get_product(product_id).in_stock > -1 %}
+                            {% if get_product(product_id).in_stock == 0 %}
+                            <span style="all: unset; font-size: 11px; font-weight: 500; color: var(--white);"><span style="color: #FF4C4C; font-size: 13px;">{{ get_product(product_id).in_stock }}</span> In Stock</span> 
+                            {% else %}
+                            <span style="all: unset; font-size: 11px; font-weight: 500; color: var(--white);"><span style="color: var(--accent); font-size: 13px;">{{ get_product(product_id).in_stock }}</span> In Stock</span> 
+                            {% endif %}
+                            {% endif %}
+                            <img src="{{ url_for('static', filename='svg/arrow-small-right (1) 1.svg') }}" onerror="this.style.display='none'">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block script %}
+    <script src="{{ url_for('static', filename='js/products.js') }}"></script>
+{% endblock %}

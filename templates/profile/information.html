@@ -1,0 +1,54 @@
+{% extends "profile_base.html" %}
+
+{% block information_tab %}active{% endblock %}
+
+{% block menu %}
+
+    <span class="title">Visual information</span>
+
+    <form action="change-information" method="post" class="profile__flex__column__content" enctype="multipart/form-data">
+        <div class="input__text">
+            <span>Basic information</span>
+            <input type="text" name="short_bio" value="{{ get_user(user_id).short_bio }}">
+        </div>
+        <div class="input__text">
+            <span>Description of your profile</span>
+            <textarea name="full_bio">{{ get_user(user_id).full_bio }}</textarea>
+        </div>
+        <div class="seperator"></div>
+        <span class="title">Contact information</span>
+        <div class="profile__flex__wrap__content">
+            <div class="input__text">
+                <span>Youtube</span>
+                <input type="text" name="youtube" value="{{ get_user(user_id).yt_link }}">
+            </div>
+            <div class="input__text">
+                <span>Discord</span>
+                <input type="text" name="discord" value="{{ get_user(user_id).ds_link }}">
+            </div>
+            <div class="input__text">
+                <span>Telegram</span>
+                <input type="text" name="telegram" value="{{ get_user(user_id).tg_link }}">
+            </div>
+        </div>
+        <div class="seperator"></div>
+        <span class="title">Your main images</span>
+        <div class="profile__flex__wrap__content">
+            <div class="input__media">
+                <input type="file" name="preview_image1" accept="image/*" onchange="previewImage(this, 'preview_image1')">
+                <img id="preview_image1" src="{{ url_for('static', filename='uploads/') }}{{ get_user(user_id).preview_image1 }}" onerror="this.style.display='none'">
+            </div>
+            <div class="input__media">
+                <input type="file" name="preview_image2" accept="image/*" onchange="previewImage(this, 'preview_image2')">
+                <img id="preview_image2" src="{{ url_for('static', filename='uploads/') }}{{ get_user(user_id).preview_image2 }}" onerror="this.style.display='none'">
+            </div>
+            <div class="input__media">
+                <input type="file" name="preview_image3" accept="image/*" onchange="previewImage(this, 'preview_image3')">
+                <img id="preview_image3" src="{{ url_for('static', filename='uploads/') }}{{ get_user(user_id).preview_image3 }}" onerror="this.style.display='none'">
+            </div>
+        </div>
+        <div class="seperator"></div>
+        <input class="profile__submit__button" type="submit" value="Save changes">
+    </form>
+
+{% endblock %}

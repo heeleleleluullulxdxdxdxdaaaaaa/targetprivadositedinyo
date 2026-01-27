@@ -1,0 +1,51 @@
+{% extends "profile_base.html" %}
+
+{% block active_tickets_tab %}active{% endblock %}
+
+{% block menu %}
+    <span class="title">Communication</span>
+    {% for ticket in tickets %}
+    <div class="ticket__button">
+        <div class="ticket__button__content">
+            <div style="cursor: pointer;" class="ticket__button__wrapped__content redirect-button" href="/profile/ticket/{{ ticket.id }}">
+                <div class="ticket__avatar__container">
+                    {% if view == "User" %}   
+                        <img src="{{ get_avatar_path(ticket.seller_id) }}" onerror="this.style.display='none'">
+                    {% else %}
+                        <img src="{{ get_avatar_path(ticket.user_id) }}" onerror="this.style.display='none'">
+                    {% endif %}
+                </div>
+                <div style="display: flex; flex-direction: column; align-items: flex-start;">
+                    {% if view == "User" %}   
+                        <span class="title" style="font-size: 13px;">{{ get_user(ticket.seller_id).username }}</span>
+                    {% else %}
+                        <span class="title" style="font-size: 13px;">{{ get_user(ticket.user_id).username }}</span>
+                    {% endif %}
+                    <span class="description" style="font-size: 11px;">Ticket #{{ ticket.id }}</span>
+                </div>
+            </div>
+            {% if view == "Seller" %}
+            {% if ticket.pin %}
+            <button class="ticket__pinned__button redirect-button" href="/profile/pin-ticket/{{ ticket.id }}">
+                <img src="{{ url_for('static', filename='svg/thumbtack (9) 2.svg') }}" onerror="this.style.display='none'">
+                <span>Pinned</span>
+            </button>
+            {% else %}
+            <button class="ticket__pin__button redirect-button" href="/profile/pin-ticket/{{ ticket.id }}">
+                <img src="{{ url_for('static', filename='svg/thumbtack (9) 1.svg') }}" onerror="this.style.display='none'">
+            </button>
+            {% endif %}
+            {% endif %}
+        </div>
+        <div class="seperator"></div>
+        <div class="ticket__button__content">
+            <div class="ticket__button__wrapped__content">
+                <span class="description">Last message: {{ get_last_ticket_message(ticket.id).created_at }}</span>
+            </div>
+            <button class="ticket__close__button redirect-button" href="/profile/close-ticket/{{ ticket.id }}">
+                <img src="{{ url_for('static', filename='svg/circle-xmark (4) 1.svg') }}" onerror="this.style.display='none'">
+            </button>
+        </div>
+    </div>
+    {% endfor %}
+{% endblock %}

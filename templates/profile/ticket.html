@@ -1,0 +1,166 @@
+{% extends "profile_base.html" %}
+
+{% block active_tickets_tab %}active{% endblock %}
+
+{% block menu %}
+
+    <span class="title">Communication</span>
+    <div class="chat__container">
+        <div class="chat__header">
+            <div class="ticket__button__wrapped__content">
+                <div class="ticket__avatar__container">
+                    {% if view == "User" %}
+                    <img src="{{ get_avatar_path(seller_id) }}" onerror="this.style.display='none'">
+                    {% else %}
+                    <img src="{{ get_avatar_path(ticket_user_id) }}" onerror="this.style.display='none'">
+                    {% endif %}
+                </div>
+                <div style="display: flex; flex-direction: column; align-items: flex-start;">
+                    {% if view == "User" %}
+                    <span class="title" style="font-size: 13px;">{{ get_user(seller_id).username }}</span>
+                    {% else %}
+                    <span class="title" style="font-size: 13px;">{{ get_user(ticket_user_id).username }}</span>
+                    {% endif %}
+                    <span class="description" style="font-size: 11px;">Ticket #{{ ticket_id }}</span>
+                </div>
+            </div>
+        </div>
+        <div class="chat__messages">
+            <span style="color: var(--text); font-size: 13px; font-weight: 400;">This is the beginning of the legendary communication with 
+                <span style="color: var(--white);">"Username".</span></span>
+            <div style="display: flex; align-items: center; gap: 15px; width: 100%;">
+                <div style="width: 100%; height: 1px; background-color: var(--border);"></div>
+                <span style="white-space: nowrap; color: var(--text); font-size: 13px; font-weight: 400;">{{ created_at }}</span>
+                <div style="width: 100%; height: 1px; background-color: var(--border);"></div>
+            </div>
+            {% for ticket_message in ticket_messages %}
+                {% if ticket_message.is_continue %}
+                    <div class="ticket__message__container continue">
+                        <div class="ticket__message__content">
+                            {% if ticket_message.is_image %}
+                                <img class="message_media" src="{{ url_for('static', filename='/uploads/') }}{{ ticket_message.message }}" onerror="this.style.display='none'">
+                            {% else %}
+                                <span>{{ ticket_message.message }}</span>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% else %}
+                <div class="ticket__message__container">
+                    <div class="ticket__avatar__container">
+                        <img src="{{ get_avatar_path(ticket_message.user_id) }}" onerror="this.style.display='none'">
+                    </div>
+                    <div class="ticket__message__content">
+                        <div class="ticket__message__content__header">
+                            <span class="title">{{ get_user(ticket_message.user_id).username }}</span>
+                            <span class="status">{{ get_user(ticket_message.user_id).status }}</span>
+                            <span class="description">{{ ticket_message.created_at }}</span>
+                        </div>
+                            {% if ticket_message.is_image %}
+                                <img class="message_media" src="{{ url_for('static', filename='/uploads/') }}{{ ticket_message.message }}" onerror="this.style.display='none'">
+                            {% else %}
+                                <span>{{ ticket_message.message }}</span>
+                            {% endif %}
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="chat__input">
+            <div class="chat__input__container">
+                <form id="messageForm">
+                    <input type="text" name="message_text" placeholder="Write your message">
+                </form>
+                <form style="display: none;" id="ticket__send__image__form">
+                    <input type="file" id="ticket__send__image__input" name="file" accept="image/*" required>
+                </form>
+                <button onclick="document.getElementById('ticket__send__image__input').click()">                                   
+                    <img src="{{ url_for('static', filename='svg/paperclip-vertical 1.svg') }}" onerror="this.style.display='none'">
+                </button>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block script %}    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <script src="{{ url_for('static', filename='js/ticket.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/profile.js')}}"></script>
+    <script>
+    const socket = io();
+    const ticketId = {{ ticket_id }};
+    
+    socket.emit('join_ticket', {ticket_id: ticketId});
+    
+    socket.on('new_message', function(data) {
+        if (data.ticket_id === ticketId) {
+            addNewMessage(data.message);
+            smoothScrollToBottom();
+        }
+    });
+    
+    function addNewMessage(messageData) {
+        const messagesContainer = document.querySelector('.chat__messages');
+        if (messageData.is_continue) {
+            if (messageData.is_image) {
+                const messageHTML = `
+                    <div class="ticket__message__container continue">
+                        <div class="ticket__message__content">
+                            <img class="message_media" src="{{ url_for('static', filename='/uploads/') }}${ messageData.message }" onerror="this.style.display='none'">
+                        </div>
+                    </div>
+                `;
+                messagesContainer.innerHTML += messageHTML;                
+            }
+            else {
+                const messageHTML = `
+                    <div class="ticket__message__container continue">
+                        <div class="ticket__message__content">
+                            <span>${messageData.message}</span>
+                        </div>
+                    </div>
+                `;
+                messagesContainer.innerHTML += messageHTML;
+            }
+        }
+        else {
+            if (messageData.is_image) {
+                const messageHTML = `
+                    <div class="ticket__message__container">
+                        <div class="ticket__avatar__container">
+                            <img src="${messageData.avatar_path}" onerror="this.style.display='none'">
+                        </div>
+                        <div class="ticket__message__content">
+                            <div class="ticket__message__content__header">
+                                <span class="title">${messageData.username}</span>
+                                <span class="status">${messageData.status}</span>
+                                <span class="description">${messageData.created_at}</span>
+                            </div>
+                            <img class="message_media" src="{{ url_for('static', filename='/uploads/') }}${ messageData.message }" onerror="this.style.display='none'">
+                        </div>
+                    </div>
+                `;
+                messagesContainer.innerHTML += messageHTML;
+            }
+            else {
+                const messageHTML = `
+                    <div class="ticket__message__container">
+                        <div class="ticket__avatar__container">
+                            <img src="${messageData.avatar_path}" onerror="this.style.display='none'">
+                        </div>
+                        <div class="ticket__message__content">
+                            <div class="ticket__message__content__header">
+                                <span class="title">${messageData.username}</span>
+                                <span class="status">${messageData.status}</span>
+                                <span class="description">${messageData.created_at}</span>
+                            </div>
+                            <span>${messageData.message}</span>
+                        </div>
+                    </div>
+                `;
+                messagesContainer.innerHTML += messageHTML;
+            }
+        }
+    }
+    </script>
+{% endblock %}

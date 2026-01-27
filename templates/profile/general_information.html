@@ -1,0 +1,46 @@
+{% extends "profile_base.html" %}
+
+{% block general_information_tab %}active{% endblock %}
+
+{% block menu %}
+
+    <span class="title">General information</span>
+
+    <div class="profile__flex__wrap__content">
+
+        <form action="change-email" method="post" style="width: 100%;">
+            <div class="input__text">
+                <span>Email address</span>
+                <input type="text" name="email" value="{{ get_user(user_id).email }}" required>
+            </div>
+        </form>
+
+        <form action="change-username" method="post" style="width: 100%;">
+            <div class="input__text">
+                <span>Username</span>
+                <input type="text" name="username" value="{{ get_user(user_id).username }}" required>
+            </div>
+        </form>
+
+    </div>
+
+    <div class="seperator"></div>
+
+    <span class="title">Change password</span>
+
+    <form action="change-password" method="post" class="profile__flex__column__content">
+        <div class="profile__flex__wrap__content">
+            <div class="input__text">
+                <span>Current password</span>
+                <input type="password" name="current_password" required>
+            </div>
+            <div class="input__text">
+                <span>New password</span>
+                <input type="password" name="new_password" required>
+            </div>
+        </div>
+        <div class="seperator"></div>
+        <input class="profile__submit__button" type="submit" value="Save changes">
+    </form>
+
+{% endblock %}

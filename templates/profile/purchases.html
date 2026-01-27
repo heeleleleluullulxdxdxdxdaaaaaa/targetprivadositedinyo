@@ -1,0 +1,29 @@
+{% extends "profile_base.html" %}
+
+{% block purchases_tab %}active{% endblock %}
+
+{% block menu %}
+    <span class="title">Shopping list</span>
+    <div class="profile__grid__3__content">
+        {% for product_id in product_ids %}
+        <div class="purchased__item">
+            <div class="purchased__item__header">
+                <img src="{{ url_for('static', filename='svg/lucide_circle-check.svg') }}" onerror="this.style.display='none'">
+                <button href="/download_product/{{ product_id }}" class="redirect-button">
+                    Download
+                </button>
+            </div>
+            <div class="purchased__item__bottom">
+                <div class="purchased__item__bottom__text">
+                    <span>{{ get_product(product_id).category }}</span>
+                    <span style="color: var(--accent);">{{ get_product(product_id).name }}</span>
+                </div>
+                <span class="description">Purchased</span>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <div class="seperator"></div>
+    <span class="description">Are there any errors or questions? Contact the seller on the website.</span>
+    <button href="/profile/active_tickets" class="redirect-button profile__submit__button">Open ticket</button>
+{% endblock %}

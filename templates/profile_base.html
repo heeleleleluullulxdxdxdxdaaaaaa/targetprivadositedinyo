@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block html %}
+    <link rel="stylesheet" href="{{ dated_url_for('static', filename='css/profile_base.css') }}">
+    <link rel="stylesheet" href="{{ dated_url_for('static', filename='css/profile_inner.css') }}">
+{% endblock %}
+
+{% block body %}
+
+    <div class="profile__container">
+        <div class="profile__content">
+            <span class="title">User account and personal data</span>
+            <div class="profile__content__inner">
+                <div class="profile__preview__and__tabs">
+                    <div class="profile__preview">
+                        <div class="profile__avatar__container">
+                            <form id="profile__avatar__container__form" action="change-avatar" method="post" enctype="multipart/form-data">
+                                <input type="file" id="profile__avatar__container__input" name="file" accept="image/*" required>
+                            </form>
+                            <button onclick="document.getElementById('profile__avatar__container__input').click()">                                   
+                                <img src="{{ get_avatar_path(user_id) }}" onerror="this.style.display='none'">
+                            </button>
+                        </div>
+                        <span class="title">
+                            {{ get_user(user_id).username }}
+                            <span class="description">{{ get_user(user_id).status }}</span>
+                        </span>
+                    </div>
+                    <div class="profile__tabs">
+                        <button href="/profile/general_information" class="redirect-button profile__tab__button {% block general_information_tab %}{% endblock %}" data-icon="user-pen">
+                            <span class="title">General information</span>
+                        </button>
+                        <button href="/profile/active_tickets" class="redirect-button profile__tab__button {% block active_tickets_tab %}{% endblock %}" data-icon="ticket-alt">
+                            <span class="title">My active tickets</span>
+                        </button>
+                        <button href="/profile/purchases" class="redirect-button profile__tab__button {% block purchases_tab %}{% endblock %}" data-icon="cart-shopping-fast">
+                            <span class="title">Purchases</span>
+                        </button>
+                        {% if get_user(user_id).seller or get_user(user_id).admin %}
+                            <div style="margin-left: 25px; width: calc(100% - 50px);" class="seperator"></div>
+                            <button href="/profile/payment_details" class="redirect-button profile__tab__button {% block payment_details_tab %}{% endblock %}" data-icon="credit-card">
+                                <span class="title">Payment details</span>
+                            </button>
+                            <button href="/profile/my_products" class="redirect-button profile__tab__button {% block my_products_tab %}{% endblock %}" data-icon="clock-three">
+                                <span class="title">My products</span>
+                            </button>
+                            <button href="/profile/information" class="redirect-button profile__tab__button {% block information_tab %}{% endblock %}" data-icon="interrogation">
+                                <span class="title">Information</span>
+                            </button>
+                        {% endif %}
+                    </div>
+                    <button class="log__out__button redirect-button" href="/logout">Log out</button>
+                </div>
+
+                <div class="profile__menu" id="profile__menu">
+                    <div class="profile__inner__content">
+                    {% block menu %}
+                        
+                    {% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block script %}
+    <script src="{{ url_for('static', filename='js/profile.js')}}"></script>
+{% endblock %}

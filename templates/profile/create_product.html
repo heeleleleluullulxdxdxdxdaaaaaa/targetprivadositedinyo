@@ -1,0 +1,67 @@
+{% extends "profile_base.html" %}
+
+{% block my_products_tab %}active{% endblock %}
+
+{% block menu %}
+    <span class="title">Product creation</span>
+    <form action="create-product" method="post" class="profile__flex__column__content" enctype="multipart/form-data">
+        <div class="profile__flex__wrap__content">
+            <div class="input__text">
+                <span>Product category</span>
+                <input type="text" name="category" required>
+            </div>
+            <div class="input__text">
+                <span>Product name</span>
+                <input type="text" name="name" required>
+            </div>
+        </div>
+        <div class="profile__flex__wrap__content">
+            <div class="input__text">
+                <span>In stock</span>
+                <input type="number" name="in_stock" value="-1" required>
+            </div>
+            <div class="input__text">
+                <span>Price</span>
+                <input type="number" id="price" name="price" step="0.01" required>
+            </div>
+        </div>
+        <div class="input__text">
+            <span>Your product description</span>
+            <textarea name="description" required></textarea>
+        </div>
+        <div class="seperator"></div>
+        <span class="title">Visual component</span>
+        <span class="description" style="margin-bottom: -10px;">Your installed preview images</span>
+        <div class="profile__flex__wrap__content">
+            <div class="input__media">
+                <input type="file" name="preview_image1" accept="image/*" onchange="previewImage(this, 'preview_image1')" required>
+                <img id="preview_image1" src="" onerror="this.style.display='none'">
+            </div>
+            <div class="input__media">
+                <input type="file" name="preview_image2" accept="image/*" onchange="previewImage(this, 'preview_image2')">
+                <img id="preview_image2" src="" onerror="this.style.display='none'">
+            </div>
+            <div class="input__media">
+                <input type="file" name="preview_image3" accept="image/*" onchange="previewImage(this, 'preview_image3')">
+                <img id="preview_image3" src="" onerror="this.style.display='none'">
+            </div>
+        </div>
+        <div class="input__text">
+            <span>Your link to the video</span>
+            <input type="text" name="video_link">
+        </div>
+        <div class="seperator"></div>
+        <span class="title">Source for delivery</span>
+        <span class="description" style="margin-bottom: -10px;">Upload your product that the client will receive after payment.</span>
+        <div id="fileInputDiv" class="input__media" style="height: 150px;">
+            <input id="fileInput" type="file" name="filename" required>
+        </div>
+        <div class="seperator"></div>
+        <input class="profile__submit__button" type="submit" value="Save changes">
+    </form>
+{% endblock %}
+
+{% block script %}
+    <script src="{{ url_for('static', filename='js/create_product.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/profile.js')}}"></script>
+{% endblock %}
