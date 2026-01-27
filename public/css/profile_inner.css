@@ -1,0 +1,604 @@
+.profile__inner__content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    gap: 25px;
+    align-items: flex-start;
+}
+
+.profile__inner__content .title {
+    all: unset;
+    font-size: 20px;
+    font-weight: 400;
+    color: var(--white);
+}
+
+.profile__inner__content .description {
+    all: unset;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+}
+
+.profile__flex__wrap__content {
+    width: 100%;
+    display: flex;
+    gap: 25px;
+}
+
+.profile__flex__column__content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+}
+
+.profile__grid__3__content {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.input__text {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: relative;
+}
+
+.input__text span {
+    font-weight: 500;
+    font-size: 13px;
+    color: var(--text);
+}
+
+.profile__submit__button,
+.input__text textarea, 
+.input__text input {
+    width: 100%;
+    padding: 10px 15px;
+    height: 45px;
+    color: var(--white);
+    font-size: 13px;
+    font-weight: 400;
+    background-color: var(--widget);
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.input__text textarea {
+    resize: vertical;
+    appearance: none;
+    min-height: 150px;
+    padding: 12px 15px;
+    line-height: 15px;
+}
+
+.input__text textarea::-webkit-resizer {
+    display: none;
+}
+
+.input__text:has(textarea)::after {
+    position: absolute;
+    content: "";
+    width: 9px;
+    height: 9px;
+    background-image: url('../svg/Rectangle\ 1292.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    right: 9px;
+    bottom: 9px;
+    pointer-events: none; 
+    z-index: 2;
+}
+
+.input__text textarea:focus, 
+.input__text textarea:hover, 
+.input__text input:focus, 
+.input__text input:hover, 
+.profile__submit__button:hover {
+    background-color: var(--light-widget);
+}   
+
+.input__media {
+    width: 100%;
+    aspect-ratio: 16/9;
+    background-color: var(--widget);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background-image: url('../svg/Frame\ 2609325.svg');
+    background-repeat: no-repeat;
+    background-size: 50px 50px;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.2s ease;
+}
+
+.input__media.success {
+    background-image: url('../svg/Frame\ 260932523.svg');
+}
+
+.input__media:hover {
+    background-color: var(--light-widget);
+}
+
+.input__media input {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.input__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+}
+
+.input__media button {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    bottom: 10px;
+    right: 10px;
+    background-color: var(--child);
+    border-radius: 100px;
+    border: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.input__media:hover button {
+    opacity: 1;
+}
+
+.input__media button img {
+    width: 15px;
+    height: 15px;
+    position: static;
+}
+
+.profile__submit__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.purchased__item {
+    width: 100%;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    background-color: var(--widget);
+    border-radius: 4px;
+    padding: 15px;
+    transition: background-color 0.2s ease;
+}
+
+.purchased__item:hover {
+    background-color: var(--light-widget);
+}
+
+.purchased__item__header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.purchased__item__header img {
+    width: 20px;
+    height: 20px;
+}
+
+.purchased__item__header button {
+    height: 31px;
+    outline: none;
+    border: none;
+    background-color: var(--light-widget);
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--white);
+    transition: background-color 0.2s ease, color 0.2s ease;
+    padding: 12px;
+    border-radius: 2px;
+}
+
+.purchased__item:hover .purchased__item__header button {
+    background-color: var(--accent);
+    color: var(--black);
+}
+
+.purchased__item__bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+.purchased__item__bottom__text {
+    display: flex;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+.purchased__item__bottom__text span {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--white);
+    text-transform: uppercase;
+}
+
+.purchased__item__bottom .description {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+}
+
+.own__item {
+    width: 100%;
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+    background-color: var(--widget);
+    border-radius: 4px;
+    outline: none;
+    transition: background-color 0.2s ease;
+}
+
+.own__item__bottom__buttons {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.own__item:hover {
+    background-color: var(--light-widget);
+    & .own__item__bottom__buttons {
+        opacity: 1;
+    }
+}
+
+.own__item__header {
+    width: 100%;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.own__item__header .title {
+    all: unset;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--white);
+    text-transform: uppercase;
+}
+
+.own__item__header .description {
+    all: unset;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--text);
+}
+
+.own__item__header__text {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+}
+
+.own__item__bottom {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.own__item__bottom img {
+    width: 15px;
+    height: 15px;
+}
+
+.own__item__bottom button {
+    width: 15px;
+    height: 15px;
+    background: none;
+    outline: none;
+    border: none;
+}
+
+.own__item__bottom button img {
+    width: 100%;
+    height: 100%;
+}
+
+.ticket__button {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    gap: 15px;
+    background-color: var(--widget);
+    border: 1px solid var(--border);
+    outline: none;
+    transition: background-color 0.2s ease;
+    border-radius: 4px;
+}
+
+.ticket__button:hover {
+    background-color: var(--light-widget);
+}
+
+.ticket__button__content {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ticket__button__wrapped__content {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.ticket__avatar__container {
+    width: 28px;
+    height: 28px;
+    border-radius: 100px;
+    overflow: hidden;
+}
+
+.ticket__avatar__container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.ticket__pin__button {
+    width: 29px;
+    height: 29px;
+    background-color: var(--light-widget);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    border: none;
+    border-radius: 2px;
+    transition: background-color 0.2s ease;
+}
+
+.ticket__pinned__button {
+    height: 29px;
+    background-color: var(--orange15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    border: none;
+    border-radius: 2px;
+    gap: 10px;
+    padding: 10px;
+    transition: background-color 0.2s ease;
+}
+
+.ticket__pinned__button span {
+    font-size: 11px;
+    font-weight: 800;
+    color: var(--orange);
+    text-transform: uppercase;
+}
+
+.ticket__button:hover .ticket__pin__button {
+    background-color: var(--on-widget);
+}
+.ticket__button .seperator {
+    transition: background-color 0.2s ease;
+}
+.ticket__button:hover .seperator {
+    background-color: var(--on-widget);
+}
+
+.ticket__close__button {
+    border: none;
+    background: none;
+    outline: none;
+    width: 15px;
+    height: 15px;
+}
+
+.ticket__close__button img {
+    width: 100%;
+    height: 100%;
+}
+
+.chat__container {
+    width: 100%;
+    height: 60vh;
+    background-color: var(--widget);
+    border-radius: 4px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.chat__header {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--light-widget);
+}
+
+.chat__messages {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    padding-bottom: 0px;
+    gap: 25px;
+    overflow-y: auto;
+}
+
+.chat__input {
+    padding: 15px;
+    width: 100%;
+}
+
+.chat__input__container {
+    width: 100%;
+    display: flex;
+    background-color: var(--light-widget);
+    border-radius: 2px;
+}
+
+.chat__input__container form {
+    width: 100%;
+}
+
+.chat__input__container button {
+    background: none;
+    outline: none;
+    border: none;
+    width: 50px;
+    height: 50px;
+}
+
+.chat__input__container input {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--white);
+}
+
+.chat__input__container input::placeholder {
+    color: var(--text);
+}
+
+.chat__input__container button {
+    width: 50px;
+    height: 50px;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+.ticket__message__container {
+    width: 100%;
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.ticket__message__container.continue {
+    margin-top: -25px;
+    padding-left: 41px;
+}
+
+.ticket__message__content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.ticket__message__content span {
+    all: unset;
+    max-width: 100%;
+    white-space: pre-line;
+    text-align: left;
+    word-wrap: break-word;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 20px;
+    color: var(--white);
+}
+
+.message_media {
+    max-width: 500px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.ticket__message__content__header {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    height: 11px;
+}
+
+.ticket__message__content__header .title {
+    all: unset;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--white);
+}
+
+.ticket__message__content__header .status {
+    all: unset;
+    padding: 3px 7px;
+    background-color: var(--on-widget);
+    border-radius: 2px;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--white);
+    text-transform: uppercase;
+}
+
+.ticket__message__content__header .description {
+    all: unset;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+}
+
+@media screen and (min-width:767px) and (max-width:1200px) {
+    .profile__grid__3__content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .profile__flex__wrap__content {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width:767px) {
+    .profile__grid__3__content {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .profile__flex__wrap__content {
+        flex-direction: column;
+    }
+}
