@@ -1,7 +1,0 @@
-{
-  "name": "targetpriv-website",
-  "version": "1.0.0",
-  "scripts": {
-    "build": "mkdir -p public && cp index.html style.css script.js public/ && cp -R resources public/"
-  }
-}
