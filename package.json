@@ -1,6 +1,8 @@
 {
+  "name": "targetpriv-website",
+  "version": "1.0.0",
   "scripts": {
-    "build": "echo 'Static build successful'"
+    "build": "true"
   },
   "dependencies": {
     "autoprefixer": "^10.4.24",
