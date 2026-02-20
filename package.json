@@ -2,6 +2,6 @@
   "name": "targetpriv-website",
   "version": "1.0.0",
   "scripts": {
-    "build": "mkdir -p public && cp index.html style.css script.js public/ 2>/dev/null || true && cp -r resources public/ 2>/dev/null || true"
+    "build": "mkdir -p public && cp index.html style.css script.js public/ && cp -R resources public/"
   }
 }
