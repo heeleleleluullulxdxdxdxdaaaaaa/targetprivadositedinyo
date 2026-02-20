@@ -1,9 +1,8 @@
 {
-  "outputDirectory": "out",
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
-  ]
+    "version": 2,
+    "public": true,
+    "cleanUrls": true,
+    "buildCommand": null,
+    "installCommand": null,
+    "framework": null
 }
